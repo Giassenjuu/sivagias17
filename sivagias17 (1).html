@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Giassenju</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 50px;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .heart {
+      font-size: 100px;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    button {
+      background-color: #ff6f91;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    .message {
+      font-size: 24px;
+      margin-top: 30px;
+      display: none;
+    }
+    .floating-heart {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 24px;
+      animation: floatUp 2s ease-out forwards;
+    }
+    @keyframes floatUp {
+      0% {opacity: 1; transform: translateY(0);}
+      100% {opacity: 0; transform: translateY(-150px);}
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" autoplay loop>
+    <source src="ssstik.io_1747041845046.mp3" type="audio/mp3">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <div class="heart">❤️</div>
+  <h1>Hallo sayangku bocil</h1>
+  <p>"Cintaku padamu tidak mengenal batas. Aku akan bepergian ke mana pun kamu pergi hanya untuk bersamamu."</p>
+  <button onclick="showLove()">Klik kalau kamu sayang aku</button>
+  <button onclick="location.href='galeri17.html'">Lihat Galeri Kita</button>
+  <div class="message" id="loveMessage">Aku juga sayang kamu lebih dari 1000 baris kode!</div>
+
+  <script>
+    function showLove() {
+      document.getElementById('loveMessage').style.display = 'block';
+      for (let i = 0; i < 10; i++) createHeart();
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.innerText = '❤️🗿';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = (window.innerHeight - 50) + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 2000);
+    }
+  </script>
+
+  <!-- Snow effect -->
+  <canvas id="snow"></canvas>
+  <script>
+    const canvas = document.getElementById('snow');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const flakes = Array.from({ length: 100 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 4 + 1,
+      d: Math.random() + 1
+    }));
+
+    function drawFlakes() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+      ctx.beginPath();
+      for (let f of flakes) {
+        ctx.moveTo(f.x, f.y);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+      }
+      ctx.fill();
+      moveFlakes();
+    }
+
+    function moveFlakes() {
+      for (let f of flakes) {
+        f.y += f.d;
+        if (f.y > canvas.height) {
+          f.y = 0;
+          f.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    setInterval(drawFlakes, 25);
+    window.onresize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+  </script>
+</body>
+</html>
