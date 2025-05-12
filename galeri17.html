@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeri Cinta Kita</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff5e78;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ff6f91;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Galeri Cinta Kita</h1>
+  <div class="gallery">
+    <img src="IMG-20241201-WA0325.jpg" alt="Foto 1">
+    <img src="IMG_20250403_175822_096.jpg" alt="Foto 2">
+    <img src="IMG_20250403_091719_353.jpg" alt="Foto 3">
+    <img src="IMG_20250403_091517_349.jpg" alt="Foto 4">
+    <audio id="bgmusic" autoplay loop>
+      <source src="ssstik.io_1747041845046.mp3" type="audio/mp3"
+    </audio>
+  </div>
+  <button onclick="location.href='sivagias17.html'">Kembali ke Halaman Utama</button>
+</body>
+</html>
